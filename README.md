@@ -107,8 +107,8 @@ cd ../frontend && npm install
 ```
 PORT=5000
 MONGO_URI=your_mongodb_uri
-ACCESS_TOKEN_SECRET=your_access_secret
-REFRESH_TOKEN_SECRET=your_refresh_secret
+JWT_ACCESS_TOKEN_SECRET=your_access_secret
+JWT_REFRESH_TOKEN_SECRET=your_refresh_secret
 CLIENT_URL=http://localhost:5173
 ```
 
@@ -153,8 +153,8 @@ npm run test
 
 **Félicien Ilenga**  
 Full-Stack Developer | React | Node.js | AWS  
-📧 [your.email@example.com]  
-🔗 [LinkedIn Profile] | [Portfolio Website]
+📧 f.ilungakalenga@gmail.com  
+🔗 LinkedIn Profile https://www.linkedin.com/in/felicien-ilunga-0368b5108
 
 ---
 
