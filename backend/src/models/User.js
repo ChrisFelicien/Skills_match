@@ -67,6 +67,9 @@ const UserSchema = new mongoose.Schema(
     refreshToken: {
       type: String,
     },
+    passwordChangedAt: {
+      type: Date,
+    },
   },
   { timestamps: true },
 );
@@ -82,6 +85,12 @@ UserSchema.pre('save', async function (next) {
 
 UserSchema.methods.comparePassword = async function (candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
+};
+
+UserSchema.methods.passwordBeenChanged = function (JWTTimeStamp) {
+  if (!this.passwordChangedAt) return;
+
+  return this.passwordChangedAt.getTime() / 1000 > JWTTimeStamp;
 };
 
 export default mongoose.model('User', UserSchema);
