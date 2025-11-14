@@ -19,12 +19,13 @@ router
   .route('/')
   .get(getAllJobs)
   .post(protect, restrictTo('client', 'admin'), createJob);
+
+router.get('/my-jobs', protect, getMyJobs);
+
 router
   .route('/:jobId')
   .get(getJob)
   .patch(protect, checkRightAccess, updateJob)
   .delete(protect, checkRightAccess, deleteJob);
-
-router.get('/my-jobs', protect, getMyJobs);
 
 export default router;
