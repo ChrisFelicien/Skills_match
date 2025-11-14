@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import AppError from './src/utils/AppError.js';
 import errorHandler from './src/middleware/errorMiddleware.js';
 import authRoutes from './src/routes/authRoutes.js';
+import jobRoutes from './src/routes/jobRoutes.js';
 
 const app = express();
 
@@ -13,6 +14,7 @@ if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
 //
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/jobs', jobRoutes);
 app.use(/.*/, (req, res, next) => {
   next(new AppError(404, `Route ${req.originalUrl} not found in this server `));
 });
