@@ -82,6 +82,8 @@ export const updateApplicationStatus = catchAsyncError(
 
     const application = await Application.findById(appId).populate('job'); //
 
+    console.log(user._id.toString(), application.job.client.toString());
+
     if (user._id.toString() !== application.job.client.toString()) {
       return next(
         new AppError(403, 'You do not have enough right for this action'),
